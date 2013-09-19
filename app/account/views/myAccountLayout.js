@@ -56,7 +56,7 @@ define([
 			var text = $(ev.currentTarget).val();
 			if(text != App.BasicModel.get("user").fname){
 				App.BasicModel.get("user").fname = text;
-				App.BasicModel.url = "../../../api/user/info/"+App.key+"?key="+App.key+"&hash="+App.hash+"&zero=0";		
+				App.BasicModel.url = "/api/user/info/"+App.key+"?key="+App.key+"&hash="+App.hash+"&zero=0";		
 				console.log(App.BasicModel);		
 				App.BasicModel.save({fname:text},{
 					success: function(s){
@@ -76,7 +76,7 @@ define([
 			var text = $(ev.currentTarget).val();
 			if(text != App.BasicModel.get("user").lname){
 				App.BasicModel.get("user").lname = text;	
-				App.BasicModel.url = "../../../api/user/info/"+App.key+"?key="+App.key+"&hash="+App.hash+"&zero=0";		
+				App.BasicModel.url = "/api/user/info/"+App.key+"?key="+App.key+"&hash="+App.hash+"&zero=0";		
 				App.BasicModel.save({lname:text},{
 					success: function(s){
 						if(s.get("status")==200){
@@ -102,7 +102,7 @@ define([
 			var text = $("#inputEmail").val();
 			if(text != App.BasicModel.get("user").email){
 				App.BasicModel.get("user").email = text;	
-				App.BasicModel.url = "../../../api/user/info/"+App.key+"?key="+App.key+"&hash="+App.hash+"&zero=0";		
+				App.BasicModel.url = "/api/user/info/"+App.key+"?key="+App.key+"&hash="+App.hash+"&zero=0";		
 				App.BasicModel.save({title:text},{
 					success: function(s){
 						if(s.get("status")==200){

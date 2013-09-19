@@ -47,7 +47,7 @@ define([
 		updatePlan: function(e){
 			/* Make a call to PathTale API, which calls Stripe API and updates the user's plan. 
 			   Charges are pro-rated and taken immediate effect. */
-			App.BillingModel.url = "../../../api/billing/plan/"+App.key+"?key="+App.key+"&hash="+App.hash+"&zero=0";
+			App.BillingModel.url = "/api/billing/plan/"+App.key+"?key="+App.key+"&hash="+App.hash+"&zero=0";
 			App.BillingModel.set("updatePlan", App.BillingModel.get("updatePlanTemp") );
 			$("#upgradeModal").modal('toggle');
 			App.BillingModel.save({},{
@@ -150,7 +150,7 @@ define([
 			}
 			//add loader
 			$(target).css("width","82%");
-			$(".modal-footer").append("<img class='blockloader'src='../../front/assets/loaders/blockLoader.gif' style='float:right;width:30px;height:30px;margin:2px 0px 0px 0px;padding:0px;border:none;' />");
+			$(".modal-footer").append("<img class='blockloader'src='/front/assets/loaders/blockLoader.gif' style='float:right;width:30px;height:30px;margin:2px 0px 0px 0px;padding:0px;border:none;' />");
 			
 			// Disable the submit button to prevent repeated clicks
 			$(target).prop('disabled', true).addClass("disabledOrange");
@@ -183,7 +183,7 @@ define([
 			   will be called and the customer object updated to reflect this change.
 			*/
 				
-			App.BillingModel.url = "../../../api/billing/card/"+App.key+"?key="+App.key+"&hash="+App.hash+"&zero=0";
+			App.BillingModel.url = "/api/billing/card/"+App.key+"?key="+App.key+"&hash="+App.hash+"&zero=0";
 			App.BillingModel.save({},{
 				success: function(s)
 				{

@@ -38,7 +38,7 @@ define([
 	  getCollection: function()
 	  {
 		  // Retrieve the team collections from the API.
-		  App.TeamCollection.url = "../../../api/team/info/"+App.CompanyModel.get("id")+"?hash="+hpt+"&key="+kpt+"&blank=0";
+		  App.TeamCollection.url = "/api/team/info/"+App.CompanyModel.get("id")+"?hash="+hpt+"&key="+kpt+"&blank=0";
 		  App.TeamCollection.fetch({
 			  success: function(s){
 				  /* 

@@ -37,7 +37,7 @@ define([
 		  var thisController = this;
 		  // Use the basic model to make one HTTP request to the API to get user's personal, company user and company data.
 		  App.BasicModel = new basicModel({id:this.key});
-		  App.BasicModel.url = '../../../api/user/info/'+this.key+"?hash="+this.hash+"&key="+this.key;
+		  App.BasicModel.url = '/api/user/info/'+this.key+"?hash="+this.hash+"&key="+this.key;
 		  App.BasicModel.fetch({
 			  success: function(s){
 				  App.BasicModel.set("authenticated",true);
@@ -57,13 +57,13 @@ define([
 		  App.UserModel = new userModel();
 		  App.UserModel.attributes = App.BasicModel.get("user");
 		  App.UserModel.id = App.BasicModel.get("user").md5_id;
-		  App.UserModel.url = "../../../api/user/info/"+App.key+"?key="+App.key+"&hash="+App.hash+"&zero=0";
+		  App.UserModel.url = "/api/user/info/"+App.key+"?key="+App.key+"&hash="+App.hash+"&zero=0";
 		 
 		 
 		  App.CompanyModel = new companyModel();
 		  App.CompanyModel.attributes = App.BasicModel.get("company");
 		  App.CompanyModel.id = App.BasicModel.get("company").id;
-		  App.CompanyModel.url = "../../../api/company/info/"+App.key+"?key="+App.key+"&hash="+App.hash+"&zero=0";
+		  App.CompanyModel.url = "/api/company/info/"+App.key+"?key="+App.key+"&hash="+App.hash+"&zero=0";
 		 
 		  
 		  App.CompanyUserModel = new companyUserModel();

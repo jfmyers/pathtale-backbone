@@ -62,7 +62,7 @@ define([
 				if(App.BasicModel.get("searchBegin")){
 					// Create a temporary collection of links, which we'll merge with a master list of search results later.
 					var TempLinkCollection = new linkCollection();
-					TempLinkCollection.url = "../../../api/search/info/"+query+"?hash="+hpt+"&key="+kpt+"&blank=0";
+					TempLinkCollection.url = "/api/search/info/"+query+"?hash="+hpt+"&key="+kpt+"&blank=0";
 					// The 'SearchStart' & 'SearchEnd' parameters indicate to other views when the search has started/ended. 
 					App.BasicModel.set("searchStep","SearchStart");
 					TempLinkCollection.fetch({

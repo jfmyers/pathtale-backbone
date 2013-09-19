@@ -44,7 +44,7 @@ define([
 		  }
 	  },
 	  getCollection: function(){
-		  App.LinkCollection.url = "../../../api/link/info/"+kpt+"?hash="+hpt+"&key="+kpt+"&blank=0";
+		  App.LinkCollection.url = "/api/link/info/"+kpt+"?hash="+hpt+"&key="+kpt+"&blank=0";
 		  App.LinkCollection.fetch({
 		  		success: function(s){
 					$(".linkTag").hexorator({baseColor:10});

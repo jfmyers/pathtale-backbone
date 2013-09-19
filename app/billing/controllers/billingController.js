@@ -39,7 +39,7 @@ define([
 	  {
 		  thisController = this;
 		  App.BillingModel = new billingModel();
-		  App.BillingModel.url = "../../../api/billing/info/"+App.key+"?key="+App.key+"&hash="+App.hash+"&zero=0";
+		  App.BillingModel.url = "/api/billing/info/"+App.key+"?key="+App.key+"&hash="+App.hash+"&zero=0";
 		  App.BillingModel.fetch({
 			  success:function(s)
 			  {
