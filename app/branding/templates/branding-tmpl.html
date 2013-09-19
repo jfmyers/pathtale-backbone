@@ -1,0 +1,79 @@
+<script type="text/template">
+<div class="sideBrandingControlers">
+	<h1>Video Chat Branding</h1>
+	<div class="control-group" style="height:80px">
+		<label class="control-label" for="inputLogo">Upload a Logo to personalize your video chat page.</label>
+		<div class="controls">
+			<iframe id="imageUpload"src="../../../logo_upload.php?pic=<%=pic%>&uid=<%=uid%>&cid=<%=id%>"></iframe>
+	  	</div>
+	</div>
+	<div class="sideDivider" ></div>
+	<!--<a id="preview" class="lightgrey-button-flat" target="_blank">Preview Your Page</a>-->
+	<form id="goToPreview"method="GET"></form>
+</div>
+<div>
+	<div class="browser">
+		<div class="browserUrl">
+			<div class="browserNavButton browserNavButtonMedium">
+				<i class=" icon-arrow-left"></i>
+			</div>
+			<div class="browserNavButton browserNavButtonLight">
+				<i class=" icon-arrow-right"></i>
+			</div>
+			<div class="browserNavButton browserNavButtonLight">
+				<i class=" icon-refresh"></i>
+			</div>
+			<div class="browserNavButton browserNavButtonLight">
+				<i class=" icon-home"></i>
+			</div>
+			<div class="urlBox">
+				<p><span class="colorOrange"><%-handle%></span>.pathtale.com</p>
+				<i class="icon-facetime-video"></i>
+			</div>
+		</div>
+		<div class="browserBody">
+			<div class="browserBodyLeft">
+				<div class="myLogo">
+					<% if(pic == "") { %>
+						<h3 id="logoAlert">[Your Logo Here]</h3>
+					<% }else{ %>
+						<img class="companyLogo" src="https://s3.amazonaws.com/logo-small/<%-pic%>">
+					<% } %>
+				</div>
+				<div class="myVideo">
+					<img src="../../../front/assets/icons/person.png" />
+					<h3>Your Video Stream </h3>
+				</div>
+			</div>
+			<div class="browserBodyRight">
+				<div class="peerVideo">
+					<img src="../../../front/assets/icons/person.png" />
+					<h3>Guest Video Stream</h3>
+				</div>
+				<div class="peerVideo">
+					<img src="../../../front/assets/icons/person.png" />
+					<h3>Guest Video Stream</h3>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<div id="logoModal" class="modalLogin hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-header">
+    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    	<h3 id="myModalLabel">Add a Logo</h3>
+  	</div>
+	
+  	<div class="modal-body">
+    	<p>Are you sure you want to change your company handle? Saving this will change the handle used to access video chats.</p>
+		<span>*Changes may take up to a few minutes to propagate through our servers.</span>
+  	</div>
+  	<div class="modal-footer">
+		<a id="updateHandle"class="orange-button-flat" style="float:left;padding:5px 12px 5px 12px;font-size:14px;">Yes, Save New Handle</a>
+		<a id=""class="grey-button-flat" data-dismiss="modal" aria-hidden="true"style="float:left;padding:5px 12px 5px 12px;font-size:14px;">Cancel</a>
+  	</div>
+</div>
+
+
+</script>

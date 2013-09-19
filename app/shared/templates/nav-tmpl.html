@@ -1,0 +1,46 @@
+<script type="text/template">
+<div id="top-nav" class="top-nav col">
+	<div class="top-nav-logo">
+		<div>
+			<a id="home" href="../../../home"><img src="../../../front/assets/logo/minilogo.png"></a>
+			<span class="divider"></span>
+			<input type="text" id="inputSearch" placeholder="Search"/>
+		</div>
+	</div>
+	<div class="top-nav-body body row">
+		<div>
+			<ul class="nav-ul">
+				<li>
+					<% if(companyUser.admin == 1){ %>
+					<a id="branding" href="../../branding" style="padding-bottom: 12px;"><span style="margin-right: 10px;">Branding</span><i class="icon-edit icon-white"></i></a>
+					<% } %>
+				</li>
+				<li>
+					<span class="divider"></span>
+				</li>
+				<li>
+					<div class="dropdown">
+						<a id="userSettingsMenu" data-toggle="dropdown" class="nav-menu-toggle-button"><%=data.fname %> <%=data.lname %> &#x25BE;</a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="left:-55px;top:41px;">
+						
+							<li><a href="../../myaccount" id="myaccount"><i class="icon-user"></i><span>Account</span></a></li>
+							<% if(companyUser.admin == 1 && (company.plan != "starter" || company.plan != "starteryr")){ %>
+							<li><a href="../../team" id="team"><i class="icon-th"></i><span>Team</span></a></li>
+							<% } %>
+							<% if(companyUser.admin == 1 && (company.stripe != "" && company.stripe != 0)){ %>
+							<li><a href="../../billing" id="billing"><i class="icon-shopping-cart"></i><span>Billing</span></a></li>
+							<% } %>
+							<li><a id="playTrainingWheels"><i class="icon-road"></i><span>Tutorial</span></a></li>
+							<!--<li><a href="../../help" id="help"><i class="icon-question-sign"></i><span>Help</span></a></li>-->
+				
+							<li class="separator"></li>
+							<li><a id="logout"><i class="icon-off"></i><span>Logout</span></a></li>
+						</ul>
+					</div>
+					
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+</script>

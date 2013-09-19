@@ -1,0 +1,99 @@
+<script type="text/template">
+<form>
+	<fieldset>
+		<ul class="content-ul shadow" style="margin-top:25px;">
+			<% if(data.admin == 1) { %>
+				<li>
+					<h3>Video Handle</h3>
+					<div class="control-group">
+	    				<label class="control-label" for="inputHandle">HANDLE</label>
+	    				<div class="controls">
+							<div class="fake-input">
+							 	<input type="text" id="inputHandle" placeholder="yourHandle" autocomplete="off"value="<%=company.handle%>">
+							 	<p>.pathtale.com</p>
+						 	  </div>
+	    	  			</div>
+	 	   			</div>
+				</li>
+			<% } %>
+			<li>
+				<h3>Basic Info</h3>
+				<div class="control-group">
+		    		<label class="control-label" for="inputFname">FIRST NAME</label>
+		    		<div class="controls">
+		      		  <input type="text" id="inputFname" placeholder="First Name" autocomplete="off"value="<%=user.fname%>">
+		    	  	</div>
+		 	   	</div>
+				<div class="control-group">
+		   			<label class="control-label" for="inputLname">LAST NAME</label>
+		    		<div class="controls">
+		      		  <input type="text" id="inputLname" placeholder="Last Name" autocomplete="off"value="<%=user.lname%>">
+		   	   		</div>
+		 	    </div>
+				<div class="control-group">
+		   			<label class="control-label" for="inputEmail">EMAIL</label>
+		    		<div class="controls">
+		      		  <input type="text" id="inputEmail" placeholder="Path Tale Account Email" autocomplete="off" value="<%=user.usr_email%>">
+		   	   		</div>
+		 	    </div>
+			</li>
+			<% if(data.admin == 1) { %>		
+				<li>
+					<h3>Your Organization</h3>
+					<div class="control-group">
+		    			<label class="control-label" for="inputCompanyName">ORGANIZATION NAME</label>
+		    			<div class="controls">
+		      		 	 	<input type="text" id="inputCompanyName" placeholder="Organization Name" autocomplete="off"value="<%=company.name%>">
+		    	  		</div>
+		 	   		</div>
+					<div class="control-group">
+		    			<label class="control-label" for="inputWebSite">WEB SITE</label>
+		    			<div class="controls">
+		      		  		<input type="text" id="inputWebSite" placeholder="www.yourOrganization.com" autocomplete="off"value="<%=company.website%>">
+		    	  		</div>
+		 	   		</div>
+					<div class="control-group">
+		   				<label class="control-label" for="inputCity">CITY</label>
+		    			<div class="controls">
+		      		 	 	<input type="text" id="inputCity" placeholder="City" autocomplete="off" value="<%=company.city%>">
+		   	   			</div>
+		 	    	</div>
+					<div class="control-group">
+		   				<label class="control-label" for="inputState">STATE</label>
+		    			<div class="controls">
+		      		  		<input type="text" id="inputState" placeholder="State" autocomplete="off" value="<%=company.state%>">
+		   	   			</div>
+		 	    	</div>
+		    	</li>
+			<% } %>
+		</ul>
+	</fieldset>
+</form>
+<div id="EmailUpdateModal" class="modalLogin hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-header">
+    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    	<h3 id="myModalLabel">Just a Second There...</h3>
+  	</div>
+  	<div class="modal-body">
+    	<p>Are you sure you want to change your Email? Saving this will change the email address you use to login into Path Tale.</p>
+  	</div>
+  	<div class="modal-footer">
+		<a id="updateEmail"class="orange-button-flat" style="float:left;padding:5px 12px 5px 12px;font-size:14px;">Yes, Save New Email</a>
+    	<a id=""class="grey-button-flat" data-dismiss="modal" aria-hidden="true"style="float:left;padding:5px 12px 5px 12px;font-size:14px;">Cancel</a>
+  	</div>
+</div>
+<div id="HandleUpdateModal" class="modalLogin hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-header">
+    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    	<h3 id="myModalLabel">Just a Second There...</h3>
+  	</div>
+  	<div class="modal-body">
+    	<p>Are you sure you want to change your company handle? Saving this will change the handle used to access video chats.</p>
+		<span>*Changes may take up to a few minutes to propagate through our servers.</span>
+  	</div>
+  	<div class="modal-footer">
+		<a id="updateHandle"class="orange-button-flat" style="float:left;padding:5px 12px 5px 12px;font-size:14px;">Yes, Save New Handle</a>
+		<a id=""class="grey-button-flat" data-dismiss="modal" aria-hidden="true"style="float:left;padding:5px 12px 5px 12px;font-size:14px;">Cancel</a>
+  	</div>
+</div>
+</script>

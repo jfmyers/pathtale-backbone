@@ -1,0 +1,16 @@
+<script type="text/template">
+	<div>
+		<input type="checkbox" />
+	</div>
+	<div>
+		<h3><%=dateCreated%> <span class="linkToolBar"><a><i class="icon-edit"></i> Edit</a></span></h3>
+		<a href="https://<%=link%>.pathtale.com/<%=linkId_md5%>" target="_blank"><img src="../../../front/assets/icons/link_pt.png"/><%=link%>.pathtale.com/<%=linkId_md5%></a>
+		<div class="tagHolder">
+			<% _.each(tags,function(item){ %> <a class="linkTag"><%=item.tag%></a> <% }) %>
+		</div>
+		<div class="tagEdit">
+			<h3>Add Tags/Notes Separated by Commas</h3>
+			<textarea placeholder="Separate each tag/note with a comma. Click out of the box, to save."><% _.each(tags,function(item,i){ %> <%=item.tag%><% if(i < (numTags-1)) { %>, <% } %> <% }) %></textarea>
+		</div>
+	</div>
+</script>

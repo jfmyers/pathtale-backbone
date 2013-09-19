@@ -1,0 +1,225 @@
+<script type="text/template">
+<div class="billing">
+	<ul class="billingNav">
+		<li>
+			<p>Credit Card On File. <a id="showCurrentCardModal" class="showCard"> Show Card</a></p>
+		</li>
+		<li style="float:right">
+			<a id="showUpdateCardModal" class="orange-button-flat updateCC"> Update Credit Card</a>
+		</li>
+		<li style="float:right;margin-right:30px">
+			<!--<h3></h3>-->
+		</li>
+	</ul>
+	<div class="billingContent">
+		<div class="contentBox">
+			<h1>Available Plans</h1>
+			<div>
+				<table class="billingTable">
+					<thead>
+						<tr>
+							<th>Plan</th>
+							<th>Price</th>
+							<th>Users/Organizers</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="col1">Starter (monthly)</td>
+							<td>$25/month</td>
+							<td>1</td>
+							<td class="col4">
+								<%if(company.plan=="starter"){%>
+									<p id="pstarter">Your Plan</p>
+								<% }else{ %>
+									<a class="grey-button-flat upgradePlan" data-plan="starter" id="pstarter">Downgrade</a>
+								<%}%>
+							</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr>
+							<td class="col1">Starter (yearly)</td>
+							<td>$250/year</td>
+							<td>1</td>
+							<td class="col4">
+								<%if(company.plan=="starteryr"){%>
+									<p id="pstarteryr">Your Plan</p>
+								<% }else{ %>
+									<% if(company.plan != "starter"){ %>
+										<a class="grey-button-flat upgradePlan" data-plan="starteryr" id="pstarteryr">Downgrade</a>
+									<% }else{ %>
+										<a class="orange-button-flat upgradePlan" data-plan="starteryr" id="pstarteryr">Upgrade</a>
+									<% } %>
+								<%}%>
+							</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr>
+							<td class="col1">Team (monthly)</td>
+							<td>$100/month</td>
+							<td>5</td>
+							<td class="col4">
+								<%if(company.plan=="team"){%>
+									<p id="pteam">Your Plan</p>
+								<% }else{ %>
+									<% if(company.plan != "starter" && company.plan != "starteryr"){ %>
+										<a class="grey-button-flat upgradePlan" data-plan="team" id="pteam">Downgrade</a>
+									<% }else{ %>
+										<a class="orange-button-flat upgradePlan" data-plan="team" id="pteam">Upgrade</a>
+									<% } %>
+								<%}%>	
+							</td>
+						</tr>
+					</tbody>
+					</tbody>
+					<tbody>
+						<tr>
+							<td class="col1">Team (yearly)</td>
+							<td>$1000/year</td>
+							<td>5</td>
+							<td class="col4">
+								<%if(company.plan=="teamyr"){%>
+									<p id="pteamyr">Your Plan</p>
+								<% }else{ %>
+									<% if(company.plan != "starter" && company.plan != "starteryr" && company.plan != "team"){ %>
+										<a class="grey-button-flat upgradePlan" data-plan="teamyr" id="pteamyr">Downgrade</a>
+									<% }else{ %>
+										<a class="orange-button-flat upgradePlan" data-plan="teamyr" id="pteamyr">Upgrade</a>
+									<% } %>
+								<%}%>	
+							</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr>
+							<td class="col1">ProTeam (monthly)</td>
+							<td>$150/month</td>
+							<td>10</td>
+							<td class="col4">
+								<%if(company.plan=="proteam"){%>
+									<p id="pproteam">Your Plan</p>
+								<% }else{ %>
+									<% if(company.plan != "starter" && company.plan != "starteryr" && company.plan != "team" && company.plan != "teamyr"){ %>
+										<a class="grey-button-flat upgradePlan" data-plan="proteam" id="pproteam">Downgrade</a>
+									<% }else{ %>
+										<a class="orange-button-flat upgradePlan" data-plan="proteam" id="pproteam">Upgrade</a>
+									<% } %>
+								<%}%>	
+							</td>
+						</tr>
+					</tbody>
+					</tbody>
+					<tbody>
+						<tr>
+							<td class="col1">ProTeam (yearly)</td>
+							<td>$1500/year</td>
+							<td>10</td>
+							<td class="col4">
+								<%if(company.plan=="proteamyr"){%>
+									<p id="pproteamyr">Your Plan</p>
+								<% }else{ %>
+									<% if(company.plan != "starter" && company.plan != "starteryr" && company.plan != "team" && company.plan != "teamyr" && company.plan != "proteam"){ %>
+										<a class="grey-button-flat upgradePlan" data-plan="proteamyr" id="pproteamyr">Downgrade</a>
+									<% }else{ %>
+										<a class="orange-button-flat upgradePlan" data-plan="proteamyr" id="pproteamyr">Upgrade</a>
+									<% } %>
+								<%}%>
+							</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr>
+							<td class="col1">Customized Package</td>
+							<td>$300+/month</td>
+							<td>Customize every detail</td>
+							<td class="col4">
+								<p><a href="mailto:sales@pathtale.com?subject=Customized%20Plan">sales@pathtale.com</a></p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="contentBox">
+			<h1>Payment History</h1>
+			<div>
+				<table class="billingTable">
+					<thead>
+						<tr>
+							<th>Date</th>
+							<th>Card</th>
+							<th>Amount</th>
+						</tr>
+					</thead>
+					<tbody>
+					<% if(order.invoiceCount > 0) { %>
+						<% _.each(order.invoices,function(item){ %>
+							<% if(item.paid == true) { %>
+								<tr>
+									<td><%-item.period_end_f%></td>
+									<td>************<%-order.last4%></td>
+									<td>$<%-item.total%></td>
+								</tr>
+							<% } %>
+						<% }) %>
+					<% } else { %>
+						<tr>
+							<td>No invoice history available.</td>
+						</tr>
+					<% } %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="updateCardModal" class="modalLogin hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-header">
+    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    	<h3 id="myModalLabel">Credit Card Information</h3>
+  	</div>
+  	<div class="modal-body">
+		<form id="payment-form" class="cardForm payment-form" method="POST" action="">
+			<label>Card Number</label>
+	 		<input type="text" placeholder="Card Number" autocomplete="off" size="20" data-stripe="number">
+			<label>Expiration (MM/YYYY)</label>
+	 		<input id="exp-month" type="text"style="width:44%; margin-right:10px;"  size="2"data-stripe="exp-month" placeholder="Month: MM" />
+	 		<input id="exp-year" type="text"style="width:45%;"  size="4"data-stripe="exp-year" placeholder="Year: YYYY" />
+			<label>CVC Code (3 digits on the back of your card)</label>
+	 		<input size="3" data-stripe="cvc"type="text" placeholder="CVC Code" autocomplete="off">
+		</form>
+    	
+  	</div>
+  	<div class="modal-footer">
+		<a id="updateCard"class="orange-button-flat" style="float: left;padding: 6px 0px 6px 0px;font-size: 14px;width: 99%;text-align: center;">Update Card</a>
+  	</div>
+</div>
+<div id="currentCardModal" class="modalLogin hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-header">
+    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    	<h3 id="myModalLabel">Your Credit Card</h3>
+  	</div>
+  	<div class="modal-body">
+		<div class="cardDetails">
+    		<p id="cardFour"><strong>Card Number:</strong>************<%-order.last4%></p>
+			<p id="cardExp"><strong>Expiration:</strong><%-order.exp_month%>/<%-order.exp_year%></p>
+		</div>
+  	</div>
+</div>
+<div id="upgradeModal" class="modalLogin hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-header">
+    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    	<h3 id="myModalLabel">Just a Second There...</h3>
+  	</div>
+  	<div class="modal-body">
+    	<p>Are you sure you want to change your plan? Your bill will be pro-rated accordingly and this change will take effect immediately. If you're on a free trail your free trial will end.</p>
+  	</div>
+  	<div class="modal-footer">
+		<a id="updatePlan"class="orange-button-flat" style="float:left;padding:5px 12px 5px 12px;font-size:14px;">Yes, Change Plan</a>
+    	<a id=""class="grey-button-flat" data-dismiss="modal" aria-hidden="true"style="float:left;padding:5px 12px 5px 12px;font-size:14px;">Cancel</a>
+  	</div>
+</div>
+</script>
