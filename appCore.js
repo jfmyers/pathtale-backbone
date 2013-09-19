@@ -1,13 +1,13 @@
 requirejs.config({
 	//By default load any module IDs from js/lib
-	baseUrl: '../../../front/js',
+	baseUrl: '/js',
 	//except, if the module ID starts with "app",
 	//load it from the js/app directory. paths
 	//config is relative to the baseUrl, and
 	//never includes a ".js" extension since
 	//the paths config could be for a directory.
 	paths: {
-		// App NameSpace
+		// App Object NameSpaces
 		app: 'app',
 		appObject:'appObject',
 		// App Module NameSpaces
@@ -25,8 +25,6 @@ requirejs.config({
 		marionette:'libs/marionette',
 		handlebars:'libs/handlebars',
 		bootstrap:'libs/bootstrap',
-		datepicker:'libs/bootstrap-datepicker',
-		timepicker:'libs/bootstrap-timepicker',
 		text:'libs/text',
 		domReady:'libs/domReady',
 		placeholder:'libs/placeholder',
@@ -60,14 +58,6 @@ requirejs.config({
 			deps: ['jquery'],
 			exports: 'Bootstrap'
 		},
-		'datepicker': {
-			deps: ['jquery'],
-			exports: 'datepicker'
-		},
-		'timepicker': {
-			deps: ['jquery'],
-			exports: 'timepicker'
-		},
 		'jqueryCustom': {
 			deps: ['jquery'],
 			exports: 'jqueryCustom'
@@ -87,6 +77,6 @@ requirejs.config({
 	}
 });
 // Start the main app logic.
-require(['domReady','app/appInitialize','jquery','bootstrap','placeholder','iecors','marionette','datepicker','timepicker','avgrund','hexorator','joyride'],function(domReady,appInitialize,$,bootstrap,placeholder,iecors,marionette,datepicker,timepicker,avgrund,hexorator,joyride){
+require(['domReady','app/appInitialize','jquery','bootstrap','placeholder','iecors','marionette','avgrund','hexorator','joyride'],function(domReady,appInitialize,$,bootstrap,placeholder,iecors,marionette,avgrund,hexorator,joyride){
 	appInitialize.initialize();
 });

@@ -3,7 +3,7 @@ define([
   'underscore',
   'backbone',
   'appObject',
-  'app/router' // Request router.js
+  'app/router'
 ],function($, _, Backbone, App, Router){
   	var initialize = function(){
 		App.addRegions({
