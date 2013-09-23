@@ -7,7 +7,7 @@ Here is a link to that post, which explains why the application is organized the
 <br>
 <a href="http://jfmyers.com/post/4/" target="_blank">http://jfmyers.com/post/4/</a>
 
-<h3>Initalizing the Application:</h3>
+<h3>Initializing the Application:</h3>
 The application is initialized in the appCore.js file:
 ```js
 // Start the main app logic.
