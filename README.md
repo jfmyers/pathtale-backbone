@@ -5,7 +5,7 @@ This is the backbone application that powers our link management platform, used 
 <br>
 Here is a link to that post, which explains why the application is organized the way it is, as well as some other things.
 <br>
-<a href="http://jfmyers.com/post/4/" target="_blank">http://jfmyers.com/post/4/</a>
+<a href="http://jfmyers.com/PathTaleLessonsLearnedUsingBackbone_4/" target="_blank">jfmyers.com/PathTaleLessonsLearnedUsingBackbone_4</a>
 
 <h3>Initializing the Application:</h3>
 The application is initialized in the appCore.js file:
